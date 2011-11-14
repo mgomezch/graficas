@@ -1,6 +1,6 @@
 CC = g++
 CCOPTS = -g -Wall
-LDLIBS = -lpng -ltrimesh -lglut -lGLU -lGL -lX11 -lm `sdl-config --cflags --libs` -lSDL_mixer
+LDLIBS = -L/usr/local/lib -lgomp -lpng -ltrimesh -lglut -lGLU -lGL -lX11 -lm `sdl-config --cflags --libs` -lSDL_mixer
 
 all: tanques
 

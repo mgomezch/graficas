@@ -310,6 +310,7 @@ struct wall {
 } w[N_WALLS];
 */
 
+bool blur;
 float px, py, pz, prz, pv, pvx, pvy, pvz, pvrz;
 float thread_l, thread_r;
 float v_x;
@@ -2029,9 +2030,14 @@ void display() {
 }
 
 void realDisplay() {
-        pass = FIRST_PASS;
-        do display();
-        while (pass != FIRST_PASS);
+        if (blur) {
+                pass = FIRST_PASS;
+                do display();
+                while (pass != FIRST_PASS);
+        } else {
+                pass = PASS_LAST;
+                display();
+        }
         glutSwapBuffers();
 }
 
@@ -2890,6 +2896,7 @@ int main(int argc, char **argv) {
                             GLUT_MULTISAMPLE);
         glutCreateWindow("Tanques");
         glutIgnoreKeyRepeat(1);
+        blur = false;
 
         {
                 struct timeval t;
