@@ -182,6 +182,7 @@ int key_cam_rotright =  'o';
 int key_cam_switch   = '\t';
 int key_shoot        =  ' ';
 int key_enter        =   13;
+int key_blur_toggle  =  'b';
 
 int keystate_fwd          = 0;
 int keystate_back         = 0;
@@ -2113,6 +2114,7 @@ void keydown(unsigned char key, int mx, int my) {
 #ifdef AUDIO
         else if (key == key_music)        keystate_music        = 1;
 #endif
+        else if (key == key_blur_toggle) blur ^= 1;
         else if (key == key_cam_switch && !rings_t) {
                 if ((cam += 1) >= N_CAMS) cam = 0;
 #ifdef AUDIO

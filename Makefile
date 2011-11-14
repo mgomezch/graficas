@@ -11,7 +11,7 @@ tanques: tanques.o list.o string_extra.o obj_parser.o objLoader.o
 	$(CC) $(CCOPTS) -o tanques tanques.o list.o string_extra.o obj_parser.o objLoader.o $(LDLIBS)
 
 tanques.o: tanques.cpp objLoader.h
-	$(CC) $(CCOPTS) -c tanques.cpp -DAUDIO
+	$(CC) $(CCOPTS) -c tanques.cpp #-DAUDIO
 
 list.o: list.cpp list.h
 	$(CC) $(CCOPTS) -c list.cpp
